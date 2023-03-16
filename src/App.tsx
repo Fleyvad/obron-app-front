@@ -1,10 +1,13 @@
 import React from 'react';
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
+import router from './router/router';
+import './styles/fonts.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>EN OBRITAS</h1>
+      <RouterProvider router={router} />
     </div>
   );
 }
