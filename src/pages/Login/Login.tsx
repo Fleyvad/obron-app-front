@@ -1,4 +1,4 @@
-import LoginForm from '../../features/users/LoginForm';
+import LoginForm from '../../features/user/components/login-form/LoginForm';
 import { LoginPage, LoginSection, LoginSectionGray } from './LoginStyled';
 
 const Login = () => {
