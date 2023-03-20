@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Inria Sans';
+  src: local('Inria Sans'),
+    url(../../public/assets/fonts/Inria_Sans/InriaSans-Regular.ttf)
+      format('truetype');
+}
+
+@font-face {
+  font-family: 'Inria Sans';
+  src: local('Inria Sans'),
+    url(../../public/assets/fonts/Inria_Sans/InriaSans-Bold.ttf)
+      format('truetype');
+}
