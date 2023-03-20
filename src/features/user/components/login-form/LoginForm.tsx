@@ -15,17 +15,9 @@ const LoginForm = () => {
   const feedBackUser = () => {
     switch (loginStatus) {
       case 'success':
-        return (
-          <UserFeedBack>
-            <p>{loginMessage}</p>
-          </UserFeedBack>
-        );
+        return <UserFeedBack>{loginMessage}</UserFeedBack>;
       case 'error':
-        return (
-          <UserFeedBack>
-            <p>{loginMessage}</p>
-          </UserFeedBack>
-        );
+        return <UserFeedBack>{loginMessage}</UserFeedBack>;
       default:
         return;
     }
@@ -49,12 +41,14 @@ const LoginForm = () => {
           <LogInTitle>Log In</LogInTitle>
           <BaseInput
             name="email"
+            id="email"
             type="email"
             placeholder="Email"
             required
           ></BaseInput>
           <BaseInput
             name="password"
+            id="password"
             type="password"
             placeholder="Password"
             required

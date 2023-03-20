@@ -4,7 +4,6 @@ import { rest } from 'msw';
 import { Provider } from 'react-redux';
 import { store } from '../../../../app/store';
 import { server } from '../../../../mocks/server';
-import { selectUser } from '../user-slice';
 import LoginForm from './LoginForm';
 
 beforeAll(() => server.listen());

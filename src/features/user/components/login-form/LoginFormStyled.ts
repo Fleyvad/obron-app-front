@@ -42,7 +42,7 @@ export const LogButton = styled.button`
 `;
 
 export const UserFeedBack = styled.div`
-  margin: 1rem auto;
+  padding: 1rem;
 `;
 
 export const Loading = styled.div`

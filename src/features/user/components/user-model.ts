@@ -13,7 +13,7 @@ export interface UserToken {
 export interface UserStatus {
   status: APIstatus;
   loginStatus: 'idle' | 'success' | 'error' | 'loadind';
-  loginMessage: string;
+  loginMessage: string | undefined;
 }
 
 export type AuthUser = Pick<User, 'email' | 'password'>;
