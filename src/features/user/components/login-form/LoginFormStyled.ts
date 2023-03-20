@@ -40,3 +40,11 @@ export const LogButton = styled.button`
   border: 1px solid black;
   box-shadow: rgb(51, 51, 51) 2px 2px 0px 0px;
 `;
+
+export const UserFeedBack = styled.div`
+  margin: 1rem auto;
+`;
+
+export const Loading = styled.div`
+  padding: 1rem;
+`;

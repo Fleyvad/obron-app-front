@@ -8,11 +8,12 @@ export const LoginPage = styled.main`
 export const LoginSection = styled.section`
   width: 50%;
   text-align: center;
-  padding: 3rem;
+  padding: 13rem 0;
+  height: 100vh;
   .logo__img-black {
     display: none;
   }
-  @media (max-width: 672px) {
+  @media (max-width: 1070px) {
     width: 100%;
     padding: 1rem;
     .logo__img-black {
@@ -26,7 +27,7 @@ export const LoginSectionGray = styled.section`
   width: 50%;
   background-color: #414141;
   position: relative;
-  @media (max-width: 672px) {
+  @media (max-width: 1070px) {
     display: none;
   }
   .logo__img-yellow {
