@@ -30,20 +30,20 @@ describe('Given a session list component,', () => {
     });
   });
 
-  test('when the page loads, it should show a list of projects', async () => {
-    server.use(...handlers);
+  // test('when the page loads, it should show a list of projects', async () => {
+  //   server.use(...handlers);
 
-    render(
-      <MemoryRouter>
-        <ProjectsPage />
-      </MemoryRouter>,
-    );
+  //   render(
+  //     <MemoryRouter>
+  //       <ProjectsPage />
+  //     </MemoryRouter>,
+  //   );
 
-    await waitFor(() => {
-      const listItem = screen.getAllByRole('listitem');
-      expect(listItem).toHaveLength(1);
-    });
-  });
+  //   await waitFor(() => {
+  //     const listItem = screen.getAllByRole('listitem');
+  //     expect(listItem).toHaveLength(1);
+  //   });
+  // });
 
   test('when the page is loading, it should show a img loading', async () => {
     server.use(

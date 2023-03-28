@@ -22,6 +22,7 @@ export const getNewUserTokenAsync = createAsyncThunk(
     const data: UserToken = await apiResponse.json();
 
     if (!apiResponse.ok) {
+      console(data.msg);
       throw new Error(data.msg);
     }
 
@@ -51,7 +52,7 @@ export const userSlice = createSlice({
       .addCase(getNewUserTokenAsync.rejected, (state, action: any) => {
         state.status = APIstatus.ERROR;
         state.loginStatus = 'error';
-        state.loginMessage = action.error.msg;
+        state.loginMessage = action.error.message;
       });
   },
 });
