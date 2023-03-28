@@ -22,7 +22,6 @@ export const getNewUserTokenAsync = createAsyncThunk(
     const data: UserToken = await apiResponse.json();
 
     if (!apiResponse.ok) {
-      console(data.msg);
       throw new Error(data.msg);
     }
 
