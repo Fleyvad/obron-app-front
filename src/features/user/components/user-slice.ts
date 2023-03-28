@@ -18,7 +18,13 @@ export const getNewUserTokenAsync = createAsyncThunk(
     const newUser = Object.fromEntries(formData.entries());
 
     const apiResponse = await getTokenByUser(newUser as AuthUser);
-    const data: UserToken = await apiResponse;
+
+    const data: UserToken = await apiResponse.json();
+
+    if (!apiResponse.ok) {
+      throw new Error(data.msg);
+    }
+
     return data;
   },
 );
@@ -38,6 +44,7 @@ export const userSlice = createSlice({
           state.status = APIstatus.IDLE;
           state.loginStatus = 'success';
           state.loginMessage = action.payload.msg;
+
           sessionStorage.setItem('Bearer', action.payload.accessToken);
         },
       )

@@ -2,6 +2,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 import { store } from '../../../../app/store';
 import { server } from '../../../../mocks/server';
 import LoginForm from './LoginForm';
@@ -34,7 +35,9 @@ describe('Given a login form component', () => {
   test('When a user tries to login with a valid email and password, then he should receive his access token', async () => {
     render(
       <Provider store={store}>
-        <LoginForm />
+        <MemoryRouter>
+          <LoginForm />
+        </MemoryRouter>
       </Provider>,
     );
 
@@ -72,7 +75,7 @@ describe('Given a login form component', () => {
     server.use(
       rest.post(
         `${process.env.REACT_APP_API_URL}/auth/login`,
-        (req, res, ctx) => {
+        (_req, res, ctx) => {
           return res(ctx.status(500), ctx.json({ msg: 'An error occurred' }));
         },
       ),

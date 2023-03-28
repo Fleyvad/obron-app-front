@@ -1,3 +1,4 @@
+import { Navigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
 import { getNewUserTokenAsync, selectUser } from '../user-slice';
 import {
@@ -7,7 +8,7 @@ import {
   LogInFormStyled,
   LogInTitle,
   UserFeedBack,
-} from './LoginFormStyled';
+} from './login-form-styled';
 
 const LoginForm = () => {
   const dispatch = useAppDispatch();
@@ -15,9 +16,20 @@ const LoginForm = () => {
   const feedBackUser = () => {
     switch (loginStatus) {
       case 'success':
-        return <UserFeedBack>{loginMessage}</UserFeedBack>;
+        return (
+          <UserFeedBack>
+            <>
+              {loginMessage}
+              <Navigate to={'/projects'} />
+            </>
+          </UserFeedBack>
+        );
       case 'error':
-        return <UserFeedBack>{loginMessage}</UserFeedBack>;
+        return (
+          <>
+            <UserFeedBack>{loginMessage}</UserFeedBack>
+          </>
+        );
       default:
         return;
     }
