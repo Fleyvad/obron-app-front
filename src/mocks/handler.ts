@@ -18,4 +18,46 @@ export const handlers = [
       return res(ctx.status(500), ctx.json({ msg: 'Error while logging in' }));
     },
   ),
+  rest.get(
+    `${process.env.REACT_APP_API_URL}/api/v1/projects`,
+    (_req, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json([
+          {
+            _id: 'mockId2',
+            projectName: 'Name',
+            date: 0,
+            description: '',
+            resources: {
+              date: 0,
+              enterprise: '',
+              worker: '',
+              hours: 0,
+              tools: '',
+              vehicles: '',
+            },
+            incidences: '',
+            imgUrl: '',
+          },
+        ]),
+      );
+    },
+  ),
+];
+
+export const errorHandlers = [
+  rest.get(
+    `${process.env.REACT_APP_API_URL}/api/v1/projects`,
+    (_req, res, ctx) => {
+      return res.once(ctx.status(401), ctx.json({ msg: 'Unauthorized' }));
+    },
+  ),
+  // rest.get(
+  //   `${process.env.REACT_APP_API_URL}/api/v1/travel`,
+
+  //   (_req, res, ctx) => {
+  //     return res.once(ctx.status(500), ctx.json(null));
+  //   },
+  // ),
 ];
