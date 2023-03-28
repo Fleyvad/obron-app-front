@@ -8,10 +8,10 @@ import ProjectCard from '../project-card/ProjectCard';
 import { selectProjects } from '../project-slice';
 import { ProjectsListContainer } from './projects-list-styled';
 
-interface projectCardProps {
+interface ProjectCardListProps {
   projects: Project[];
 }
-const ProjectsList: FC<projectCardProps> = ({ projects }) => {
+const ProjectsList: FC<ProjectCardListProps> = ({ projects }) => {
   const { status } = useAppSelector(selectProjects);
   const createProjectsList = () => {
     switch (status) {

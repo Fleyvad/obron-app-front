@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import Project from '../../projects-model';
 import { TextCard } from './project-card-styled';
 
-interface projectCardProps {
+interface ProjectCardProps {
   projects: Project;
 }
 
-const ProjectCard: FC<projectCardProps> = ({ projects }) => {
+const ProjectCard: FC<ProjectCardProps> = ({ projects }) => {
   const { projectName, date, imgUrl } = projects;
   const { enterprise } = projects.resources;
 
