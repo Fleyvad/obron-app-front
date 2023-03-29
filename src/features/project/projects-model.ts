@@ -24,9 +24,9 @@ type Project = {
   imgUrl: string;
 };
 
-export interface ProjectResponse {
-  msg: string;
-  projects: Project[];
-}
+export type ErrorAPI = { msg: string };
+export type ProjectResponseData = { projects: Project[] };
+
+export type ProjectResponse = ErrorAPI | ProjectResponseData;
 
 export default Project;
