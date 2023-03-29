@@ -39,7 +39,7 @@ export const ProjectContainer = styled.li`
   .card__logos {
     display: flex;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 715px) {
     padding: 0;
     .card__img {
       display: block;
@@ -65,7 +65,7 @@ export const ProjectContainer = styled.li`
 export const TextCard = styled.p`
   padding: 0 2rem;
   border-right: 1px solid black;
-  @media (max-width: 800px) {
+  @media (max-width: 715px) {
     margin-bottom: 1rem;
     border-bottom: 1px solid black;
     border-right: none;

@@ -55,6 +55,7 @@ describe('Given a login form component', () => {
   });
 
   // test('When an user tries to log with incorrect email or password, then it should respond an error', async () => {
+  //   server.use(...handlers);
   //   render(
   //     <Provider store={store}>
   //       <LoginForm />
@@ -78,7 +79,7 @@ describe('Given a login form component', () => {
   //     rest.post(
   //       `${process.env.REACT_APP_API_URL}/auth/login`,
   //       (_req, res, ctx) => {
-  //         return res(ctx.status(500), ctx.json({ msg: 'An error occurred' }));
+  //         return res(ctx.status(500), ctx.json({ msg: 'Unauthorized' }));
   //       },
   //     ),
   //   );

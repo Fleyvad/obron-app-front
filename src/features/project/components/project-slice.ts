@@ -2,7 +2,12 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../../app/store';
 import { APIstatus } from '../../../shared/api-status';
 import { getAllProjects } from '../projects-api';
-import { ProjectResponse, ProjectStatus } from '../projects-model';
+import {
+  ErrorAPI,
+  ProjectResponse,
+  ProjectResponseData,
+  ProjectStatus,
+} from '../projects-model';
 
 const STATE_NAME = 'projects';
 
@@ -20,10 +25,10 @@ export const getProjectsAsync = createAsyncThunk(
     const data: ProjectResponse = await apiResponse.json();
 
     if (!apiResponse.ok) {
-      throw new Error(data.msg);
+      throw new Error((data as ErrorAPI).msg);
     }
 
-    return data;
+    return data as ProjectResponseData;
   },
 );
 
@@ -39,10 +44,9 @@ export const projectSlice = createSlice({
       })
       .addCase(
         getProjectsAsync.fulfilled,
-        (state, action: PayloadAction<ProjectResponse>) => {
+        (state, action: PayloadAction<ProjectResponseData>) => {
           state.status = APIstatus.IDLE;
           state.propjectStatus = 'success';
-          state.projectMessage = action.payload.msg;
           state.projects = action.payload.projects;
         },
       )
