@@ -3,10 +3,10 @@ import { rest } from 'msw';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import { store } from '../../../../app/store';
+import { errorHandlers } from '../../../../mocks/handler';
 
-import { errorHandlers, handlers } from '../../../../mocks/handler';
 import { server } from '../../../../mocks/server';
-import { ProjectsPage } from '../../../../pages/projects/Projects';
+import ProjectsPage from '../../../../pages/projects/Projects';
 import { Loading } from '../../../user/components/login-form/login-form-styled';
 
 describe('Given a session list component,', () => {
@@ -30,20 +30,20 @@ describe('Given a session list component,', () => {
     });
   });
 
-  // test('when the page loads, it should show a list of projects', async () => {
-  //   server.use(...handlers);
+  test('when the page loads, it should show a list of projects', async () => {
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <ProjectsPage />
+        </MemoryRouter>
+      </Provider>,
+    );
 
-  //   render(
-  //     <MemoryRouter>
-  //       <ProjectsPage />
-  //     </MemoryRouter>,
-  //   );
-
-  //   await waitFor(() => {
-  //     const listItem = screen.getAllByRole('listitem');
-  //     expect(listItem).toHaveLength(1);
-  //   });
-  // });
+    await waitFor(() => {
+      const listItem = screen.getAllByRole('listitem');
+      expect(listItem.length).toBe(1);
+    });
+  });
 
   test('when the page is loading, it should show a img loading', async () => {
     server.use(

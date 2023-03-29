@@ -23,24 +23,26 @@ export const handlers = [
     (_req, res, ctx) => {
       return res(
         ctx.status(200),
-        ctx.json([
-          {
-            _id: 'mockId2',
-            projectName: 'Name',
-            date: 0,
-            description: '',
-            resources: {
+        ctx.json({
+          projects: [
+            {
+              _id: 'mockId2',
+              projectName: 'Name',
               date: 0,
-              enterprise: '',
-              worker: '',
-              hours: 0,
-              tools: '',
-              vehicles: '',
+              description: '',
+              resources: {
+                date: 0,
+                enterprise: '',
+                worker: '',
+                hours: 0,
+                tools: '',
+                vehicles: '',
+              },
+              incidences: '',
+              imgUrl: '',
             },
-            incidences: '',
-            imgUrl: '',
-          },
-        ]),
+          ],
+        }),
       );
     },
   ),

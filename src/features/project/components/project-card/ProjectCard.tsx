@@ -13,7 +13,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ projects }) => {
 
   return (
     <>
-      <Link className="card__link" to={''}>
+      <Link className="card__link" to={'#'}>
         <div className="card__texts">
           <TextCard>{projectName}</TextCard>
           <TextCard>{date}</TextCard>
