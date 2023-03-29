@@ -25,7 +25,7 @@ export const NotFoundPageContainer = styled.main`
     font-size: 2rem;
     color: #ffcf6a;
     text-decoration: none;
-    padding: 0 10rem;
+    padding: 0 12rem;
   }
   .not-found-page__img-obron {
     max-width: 100%;
