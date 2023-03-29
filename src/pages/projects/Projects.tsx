@@ -7,16 +7,24 @@ import {
 import ProjectsList from '../../features/project/components/projects-list/ProjecstList';
 import { ProjectsPageContainer, TitlePageProjects } from './projects-styled';
 
-export const ProjectsPage = () => {
+const ProjectsPage = () => {
   const dispatch = useAppDispatch();
   const projectsState = useAppSelector(selectProjects);
+
   useEffect(() => {
     dispatch(getProjectsAsync());
   }, [dispatch]);
   return (
     <>
       <ProjectsPageContainer>
-        <TitlePageProjects>PROJECTS</TitlePageProjects>
+        <div className="projectsPage__header">
+          <TitlePageProjects>PROJECTS</TitlePageProjects>
+          <img
+            className="projectsPage__create-logo"
+            src="/assets/img/create-button.svg"
+            alt="create-img"
+          />
+        </div>
         <ProjectsList projects={projectsState.projects} />
       </ProjectsPageContainer>
     </>
