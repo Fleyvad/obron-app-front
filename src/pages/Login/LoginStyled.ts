@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const LoginPage = styled.main`
   background-color: #ffcf6a;
   display: flex;
+  min-height: 100vh;
 `;
 
 export const LoginSection = styled.section`
