@@ -5,15 +5,16 @@ export interface ProjectStatus {
   propjectStatus: 'idle' | 'success' | 'error' | 'loadind';
   projectMessage: string | undefined;
   projects: Project[];
+  createProjectStatus: 'loading' | 'success' | 'error' | 'idle';
 }
 
 type Project = {
   _id: string;
   projectName: string;
-  date: number;
+  date: Date;
   description: string;
   resources: {
-    date: number;
+    date: Date;
     enterprise: string;
     worker: string;
     hours: number;
@@ -23,6 +24,11 @@ type Project = {
   incidences: string;
   imgUrl: string;
 };
+
+export interface CreateProjectResponse {
+  msg: string;
+  travels: Project;
+}
 
 export type ErrorAPI = { msg: string };
 export type ProjectResponseData = { projects: Project[] };
