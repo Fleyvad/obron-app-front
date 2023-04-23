@@ -3,6 +3,7 @@ import MainLayout from '../layout/MainLayout/MainLayout';
 import Login from '../pages/Login/Login';
 import { NotFoundPage } from '../pages/not-found/NotFound';
 import ProjectsPage from '../pages/projects/Projects';
+import ProjectFormPage from '../pages/project-form/ProjectFormPage';
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,10 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
-    children: [{ path: '/projects', element: <ProjectsPage /> }],
+    children: [
+      { path: '/projects', element: <ProjectsPage /> },
+      { path: '/create', element: <ProjectFormPage /> },
+    ],
   },
 ]);
 
