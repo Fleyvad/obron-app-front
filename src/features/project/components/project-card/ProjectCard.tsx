@@ -10,13 +10,21 @@ interface ProjectCardProps {
 const ProjectCard: FC<ProjectCardProps> = ({ projects }) => {
   const { projectName, date, imgUrl } = projects;
   const { enterprise } = projects.resources;
-
+  const ProjectDate = new Date(date);
   return (
     <>
       <Link className="card__link" to={'#'}>
         <div className="card__texts">
-          <TextCard>{projectName}</TextCard>
-          <TextCard>{date}</TextCard>
+          <TextCard>{projectName.toLocaleUpperCase()}</TextCard>
+          <TextCard>
+            {date
+              ? ProjectDate.toLocaleString('en', {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit',
+                })
+              : null}
+          </TextCard>
           <TextCard>{enterprise}</TextCard>
         </div>
         <div className="card__logos">
